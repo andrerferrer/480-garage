@@ -1,13 +1,25 @@
-// TODO: Build an awesome garage!
+//////////////
+// IMPORTING
+//////////////
+import { fetchCars } from './components/fetch_cars';
+import { postAPI } from './components/post_api';
 
-// To get all cars
-// 1. Send an AJAX request to the API to fetch all cars
-// 2. For each car
-//    3. Insert a new row in the cars table
+
+/////////////////////
+// EVENT LISTENERS //
+/////////////////////
 
 // To add a new car
 // 1. Add an event listener on the form
-// 2. Prevent default behavior when we submit it
-// 3. Retrieve data entered by the user in the inputs
-// 4. Send a POST ajax request to the API
-// 5. Refresh cars list
+const form = document.querySelector('.car-form');
+
+form.addEventListener('submit', (event) => {
+  // 2. Prevent default behavior when we submit it
+  event.preventDefault();
+  postAPI();
+});
+
+///////////////////////
+// CALLING FUNCTIONS //
+///////////////////////
+fetchCars();
